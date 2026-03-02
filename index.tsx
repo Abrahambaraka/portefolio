@@ -665,7 +665,7 @@ const App = () => {
   }, [view]);
 
   return (
-    <div className="relative min-h-screen bg-[#020617] text-white selection:bg-cyan-500/30 selection:text-cyan-400">
+    <div className="relative min-h-screen w-full max-w-full overflow-x-hidden bg-[#020617] text-white selection:bg-cyan-500/30 selection:text-cyan-400">
       <Navbar currentView={view} setView={setView} />
 
       <main className="relative z-10">
