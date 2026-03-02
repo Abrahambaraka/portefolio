@@ -113,33 +113,77 @@ const Navbar: React.FC<{ currentView: View, setView: (v: View) => void }> = ({ c
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-slate-950 z-[101] flex flex-col p-8 pt-32"
-          >
-            <div className="flex flex-col gap-8 sm:gap-10">
-              {navLinks.map((link, i) => (
-                <motion.button
-                  key={link.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  onClick={() => { setView(link.id); setIsMenuOpen(false); }}
-                  className={`text-3xl sm:text-4xl font-black uppercase tracking-tighter text-left ${currentView === link.id ? 'text-cyan-400' : 'text-slate-700'}`}
-                >
-                  {link.name}
-                </motion.button>
-              ))}
-            </div>
-            <button
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setIsMenuOpen(false)}
-              className="mt-auto self-center p-8 text-slate-500 hover:text-cyan-400 transition-colors"
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[100] md:hidden"
+            />
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed inset-y-0 right-0 w-[85%] max-w-sm bg-[#050505]/95 backdrop-blur-2xl border-l border-white/5 z-[101] flex flex-col p-8 shadow-[-20px_0_50px_rgba(0,0,0,0.5)] overflow-hidden"
             >
-              <X size={56} />
-            </button>
-          </motion.div>
+              {/* Decorative grid */}
+              <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+
+              <div className="flex justify-between items-center mb-12 relative z-10">
+                <div className="mono text-[10px] text-cyan-400 uppercase tracking-widest flex items-center gap-3">
+                  <div className="w-2 h-2 bg-cyan-500 animate-pulse rounded-full shadow-[0_0_10px_rgba(34,211,238,0.8)]"></div>
+                  Nav_Matrix
+                </div>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 border border-white/5 rounded-sm text-slate-400 hover:text-white hover:bg-white/5 transition-colors bg-black"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex flex-col gap-4 relative z-10 flex-grow">
+                {navLinks.map((link, i) => (
+                  <motion.button
+                    key={link.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + i * 0.1, type: "spring", stiffness: 250, damping: 20 }}
+                    onClick={() => { setView(link.id); setIsMenuOpen(false); }}
+                    className={`relative w-full group py-5 px-6 flex items-center justify-between border border-white/5 bg-white/[0.01] hover:bg-cyan-500/10 hover:border-cyan-500/30 transition-all rounded-xl overflow-hidden ${currentView === link.id ? 'border-cyan-500/30 bg-cyan-500/10' : ''}`}
+                  >
+                    <div className={`absolute left-0 top-0 bottom-0 w-1 transition-all ${currentView === link.id ? 'bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)]' : 'bg-transparent group-hover:bg-cyan-500/30'}`}></div>
+                    <span className={`text-2xl font-black uppercase tracking-tighter transition-colors ${currentView === link.id ? 'text-cyan-400' : 'text-slate-300 group-hover:text-white'}`}>
+                      {link.name}
+                    </span>
+                    <span className={`transition-transform duration-300 ${currentView === link.id ? 'text-cyan-400 translate-x-1' : 'text-slate-600 group-hover:text-white group-hover:translate-x-1'}`}>
+                      →
+                    </span>
+                  </motion.button>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="mt-auto relative z-10 border-t border-white/5 pt-8 flex flex-col items-center gap-4"
+              >
+                <div className="flex gap-4">
+                  <a href="#" className="w-10 h-10 rounded-full border border-white/5 bg-slate-900 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"><Github size={16} /></a>
+                  <a href="#" className="w-10 h-10 rounded-full border border-white/5 bg-slate-900 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"><Linkedin size={16} /></a>
+                  <a href="#" className="w-10 h-10 rounded-full border border-white/5 bg-slate-900 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"><Mail size={16} /></a>
+                </div>
+                <div className="mono text-[9px] text-slate-600 uppercase tracking-[0.2em] mt-2">
+                  System.Override // 2026
+                </div>
+              </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
