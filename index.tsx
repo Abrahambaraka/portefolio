@@ -127,7 +127,7 @@ const Navbar: React.FC<{ currentView: View, setView: (v: View) => void }> = ({ c
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
                   onClick={() => { setView(link.id); setIsMenuOpen(false); }}
-                  className={`text-5xl sm:text-6xl font-black uppercase tracking-tighter text-left ${currentView === link.id ? 'text-cyan-400' : 'text-slate-700'}`}
+                  className={`text-3xl sm:text-4xl font-black uppercase tracking-tighter text-left ${currentView === link.id ? 'text-cyan-400' : 'text-slate-700'}`}
                 >
                   {link.name}
                 </motion.button>
