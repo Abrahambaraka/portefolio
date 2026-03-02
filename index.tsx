@@ -73,10 +73,10 @@ const Navbar: React.FC<{ currentView: View, setView: (v: View) => void }> = ({ c
           className="text-2xl font-black tracking-tighter cursor-pointer group flex items-center"
         >
           <div className="mr-2 relative">
-            <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">B</span>
+            <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">BARAKA.</span>
             <div className="absolute -inset-1 bg-cyan-400/20 blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
-          <span className="group-hover:tracking-widest transition-all duration-500">ARAKA.M</span>
+          <span className="group-hover:tracking-widest transition-all duration-500">M</span>
           <span className="text-cyan-400 animate-pulse ml-1">_</span>
         </motion.div>
 
@@ -166,8 +166,8 @@ const HomeView: React.FC<{ setView: (v: View) => void }> = ({ setView }) => {
             <span className="mono text-[10px] text-cyan-400 uppercase tracking-[0.3em]">Operational Status: All Systems Go</span>
           </div>
 
-          <h1 className="text-5xl sm:text-7xl md:text-[10rem] font-black mb-6 sm:mb-10 tracking-tighter uppercase leading-[0.8] glitch" data-text="BARAKA MAHESHE">
-            BARAKA MAHESHE
+          <h1 className="text-5xl sm:text-7xl md:text-[10rem] font-black mb-6 sm:mb-10 tracking-tighter uppercase leading-[0.8] glitch" data-text="ABRAHAM BARAKA">
+            ABRAHAM BARAKA
           </h1>
 
           <p className="max-w-3xl mx-auto text-slate-400 text-lg sm:text-xl md:text-2xl leading-relaxed font-light mb-10 sm:mb-16">
@@ -616,7 +616,7 @@ const ContactView: React.FC = () => {
       </div>
 
       <div className="mt-40 border-t border-white/5 pt-16 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div className="text-3xl font-black tracking-tighter uppercase"><span className="text-cyan-400">B</span>ARAKA.M</div>
+        <div className="text-3xl font-black tracking-tighter uppercase"><span className="text-cyan-400">BARAKA.</span> M</div>
         <div className="flex gap-10">
           <a href="#" className="mono text-[9px] text-slate-500 uppercase tracking-widest hover:text-cyan-400 transition-colors">Privacy_Protocol</a>
           <a href="#" className="mono text-[9px] text-slate-500 uppercase tracking-widest hover:text-cyan-400 transition-colors">Security_Notice</a>
