@@ -23,7 +23,8 @@ import {
   Search,
   CheckCircle,
   Eye,
-  FileText
+  FileText,
+  Phone
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -166,11 +167,11 @@ const HomeView: React.FC<{ setView: (v: View) => void }> = ({ setView }) => {
             <span className="mono text-[10px] text-cyan-400 uppercase tracking-[0.3em]">Operational Status: All Systems Go</span>
           </div>
 
-          <h1 className="text-5xl sm:text-7xl md:text-[10rem] font-black mb-6 sm:mb-10 tracking-tighter uppercase leading-[0.8] glitch" data-text="ABRAHAM BARAKA">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-black mb-6 sm:mb-10 tracking-tighter uppercase leading-[0.8] glitch" data-text="ABRAHAM BARAKA">
             ABRAHAM BARAKA
           </h1>
 
-          <p className="max-w-3xl mx-auto text-slate-400 text-lg sm:text-xl md:text-2xl leading-relaxed font-light mb-10 sm:mb-16">
+          <p className="max-w-3xl mx-auto text-slate-400 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed font-light mb-10 sm:mb-16 px-4">
             Architecting <span className="text-white font-bold italic underline decoration-cyan-500 decoration-2">High-Security</span> digital frameworks and
             visually dominant user experiences for the next generation of web infrastructure.
           </p>
@@ -223,6 +224,13 @@ const ExpertiseView: React.FC = () => {
       tag: "UI_ARCH",
       desc: "Creating cinematic, data-heavy interfaces that prioritize visual storytelling without sacrificing performance.",
       techs: ["Figma Mastery", "Three.js / WebGL", "Motion Graphics", "Accessibility (A11y)"]
+    },
+    {
+      title: "Consultant Tech",
+      icon: <Cpu size={48} className="text-yellow-400" />,
+      tag: "STRAT_SEC",
+      desc: "Consultant Tech et Cybersécurité : audit de systèmes, gouvernance IT, et implémentation de stratégies Zero-Trust.",
+      techs: ["IT Strategy", "Risk Assessment", "Network Audits", "SecOps Consulting"]
     }
   ];
 
@@ -268,7 +276,7 @@ const ExpertiseView: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-2 gap-8 sm:gap-10">
         {cards.map((card, i) => (
           <motion.div
             key={i}
@@ -519,11 +527,20 @@ const ContactView: React.FC = () => {
           <div className="space-y-6 sm:space-y-10">
             <div className="flex items-center gap-4 sm:gap-8 group">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-slate-900 border border-white/10 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:bg-cyan-500 transition-all duration-300 shadow-xl group-hover:shadow-cyan-500/20">
+                <Phone className="group-hover:text-slate-950" size={20} sm:size={28} />
+              </div>
+              <div>
+                <h4 className="mono text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-widest mb-1 sm:mb-2">Encrypted_Line</h4>
+                <a href="tel:+243978005859" className="text-lg sm:text-2xl font-black tracking-tight group-hover:text-cyan-400 transition-colors truncate max-w-[200px] sm:max-w-none block">+243 97 800 5859</a>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 sm:gap-8 group">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-slate-900 border border-white/10 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:bg-cyan-500 transition-all duration-300 shadow-xl group-hover:shadow-cyan-500/20">
                 <Mail className="group-hover:text-slate-950" size={20} sm:size={28} />
               </div>
               <div>
                 <h4 className="mono text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-widest mb-1 sm:mb-2">Direct_Channel</h4>
-                <p className="text-lg sm:text-2xl font-black tracking-tight group-hover:text-cyan-400 transition-colors truncate max-w-[200px] sm:max-w-none">hello@barakamaheshe.com</p>
+                <a href="mailto:hello@barakamaheshe.com" className="text-lg sm:text-2xl font-black tracking-tight group-hover:text-cyan-400 transition-colors truncate max-w-[200px] sm:max-w-none block">hello@barakamaheshe.com</a>
               </div>
             </div>
             <div className="flex items-center gap-4 sm:gap-8 group">
@@ -615,13 +632,22 @@ const ContactView: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-40 border-t border-white/5 pt-16 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div className="text-3xl font-black tracking-tighter uppercase"><span className="text-cyan-400">BARAKA.</span> M</div>
-        <div className="flex gap-10">
-          <a href="#" className="mono text-[9px] text-slate-500 uppercase tracking-widest hover:text-cyan-400 transition-colors">Privacy_Protocol</a>
-          <a href="#" className="mono text-[9px] text-slate-500 uppercase tracking-widest hover:text-cyan-400 transition-colors">Security_Notice</a>
+      <div className="mt-32 border-t border-white/5 pt-12 pb-12 flex flex-col gap-12 lg:flex-row lg:justify-between lg:items-end">
+        <div className="flex flex-col items-center lg:items-start gap-4">
+          <div className="text-4xl sm:text-5xl font-black tracking-tighter uppercase"><span className="text-cyan-400">BARAKA.</span> M</div>
+          <div className="flex items-center gap-3 text-slate-400 group">
+            <Phone size={16} className="group-hover:text-cyan-400 transition-colors" />
+            <a href="tel:+243978005859" className="font-mono text-xs sm:text-sm group-hover:text-white transition-colors tracking-widest">+243 97 800 5859</a>
+          </div>
         </div>
-        <div className="mono text-[9px] text-slate-700 uppercase tracking-[0.3em]">© 2025 ALL_RIGHTS_RESERVED // DESIGNED_IN_PARIS</div>
+        <div className="flex flex-col items-center lg:items-end gap-6">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+            <a href="#" className="mono text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-widest hover:text-cyan-400 transition-colors">Privacy_Protocol</a>
+            <a href="#" className="mono text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-widest hover:text-cyan-400 transition-colors">Security_Notice</a>
+            <a href="mailto:hello@barakamaheshe.com" className="mono text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-widest hover:text-cyan-400 transition-colors">Direct_Uplink</a>
+          </div>
+          <div className="mono text-[9px] sm:text-[10px] text-slate-700 uppercase tracking-[0.3em] text-center">© 2025 ALL_RIGHTS_RESERVED // KINSHASA_LUBUMBASHI_NODE</div>
+        </div>
       </div>
     </motion.section>
   );
